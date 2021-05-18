@@ -1,2 +1,8 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.splash-image {
+  height: 100%;
+  width: 700px;
+  max-width: 100%;
+}
