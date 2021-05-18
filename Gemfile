@@ -6,7 +6,7 @@ ruby '2.7.2'
 ############ Start added by ryanjwise ############
 gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
-
+gem 'simple_form'
 
 ############ End added by ryanjwise ############
 
