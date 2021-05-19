@@ -10,10 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_030948) do
+ActiveRecord::Schema.define(version: 2021_05_19_001848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "state"
+    t.string "city"
+    t.string "street"
+    t.integer "street_num"
+    t.integer "post_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "candle_carts", force: :cascade do |t|
+    t.bigint "candle_id", null: false
+    t.bigint "cart_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candle_id"], name: "index_candle_carts_on_candle_id"
+    t.index ["cart_id"], name: "index_candle_carts_on_cart_id"
+  end
+
+  create_table "candles", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.integer "price"
+    t.integer "stock"
+    t.string "name"
+    t.text "description"
+    t.string "ingredients", default: [], array: true
+    t.string "scents", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_candles_on_store_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id", null: false
+    t.index ["order_id"], name: "index_carts_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "total_price"
+    t.string "receipt_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_stores_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +87,11 @@ ActiveRecord::Schema.define(version: 2021_05_18_030948) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "candle_carts", "candles"
+  add_foreign_key "candle_carts", "carts"
+  add_foreign_key "candles", "stores"
+  add_foreign_key "carts", "orders"
+  add_foreign_key "orders", "users"
+  add_foreign_key "stores", "users"
 end
