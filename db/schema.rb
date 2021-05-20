@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_001848) do
+ActiveRecord::Schema.define(version: 2021_05_19_081218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_001848) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id", null: false
-    t.index ["order_id"], name: "index_carts_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -63,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_05_19_001848) do
     t.string "receipt_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cart_id"
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_001848) do
   add_foreign_key "candle_carts", "candles"
   add_foreign_key "candle_carts", "carts"
   add_foreign_key "candles", "stores"
-  add_foreign_key "carts", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "stores", "users"
 end
