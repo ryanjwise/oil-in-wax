@@ -18,36 +18,7 @@
 </div>
 
 <div class="card-container p-1 my-2 mx-5 d-flex justify-content-between flex-wrap">
-  <div class="card" style="width: 18rem;">
-    <%= image_tag 'candle_backdrop', class: "card-img-top"%>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <%= image_tag 'candle_backdrop', class: "card-img-top"%>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <%= image_tag 'candle_backdrop', class: "card-img-top"%>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <%= image_tag 'candle_backdrop', class: "card-img-top"%>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+  <% @candles.each do |candle| %>
+    <%= render 'shared/card', candle: candle%>
+  <% end %>
 </div>
