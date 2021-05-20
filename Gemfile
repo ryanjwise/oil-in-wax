@@ -11,6 +11,8 @@ ruby '2.7.2'
 gem 'simple_form'
 # Devise
 gem 'devise'
+# Faker
+gem 'faker'
 
 
 ############ End added by ryanjwise ############

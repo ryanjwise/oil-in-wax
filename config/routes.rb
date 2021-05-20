@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'store/new'
+  get 'store/show'
   root to: 'home#index'
   
   get 'home/index', to: 'home#index', as: 'home'
