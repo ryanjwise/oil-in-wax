@@ -4,7 +4,7 @@
     <h5 class="card-title"><%= candle.name %></h5>
     <p class="card-text"><%= candle.description %></p>
     <div class="card-footer">
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+      <%= link_to "See More", candle_show_path(candle.id), class:"btn btn-primary" %>
     </div>
   </div>
 </div>

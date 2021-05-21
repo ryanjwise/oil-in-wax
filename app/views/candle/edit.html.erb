@@ -1,0 +1,7 @@
+<h1>Edit <%= @candle.name %></h1>
+<p>Hints:</p>
+<ul>
+  <li>Scents are input as a space seperated list</li>
+  <li>Ingredients are input as a space seperated list</li>
+</ul>
+<%= render 'form', candle: @candle, url: candle_update_path %>
