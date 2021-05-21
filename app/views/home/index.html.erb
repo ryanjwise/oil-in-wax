@@ -1,21 +1,6 @@
-<div class="px-4 py-3 mx-5 mt-5 bg-secondary text-white rounded-3">
-  <div class="container-fluid px-5" >
-    <h1 class="display-4 fw-bold text-center">Oil in Wax</h1>
-    <div class="container-fluid p-2 d-flex justify-content-center">
-      <%= image_tag 'candle_backdrop', class: "splash-image"%>
-    </div>
-    <div class="container-fluid p-2 d-flex justify-content-center">
-      <p class=" fs-4 text-center">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/hero' %>
 
-<div class="p-1 my-2 mx-5 bg-secondary text-white rounded-3">
-  <%= form_tag home_path, method: :get, class: "d-flex justify-content-evenly" do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Search", class: "form-control"%>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<%= render 'shared/searchbar' %>
 
 <div class="card-container p-1 my-2 mx-5">
   <div class="card-group justify-content-between flex-wrap">

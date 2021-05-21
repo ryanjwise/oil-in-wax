@@ -1,0 +1,33 @@
+<div class="bg-secondary text-white rounded-3">
+  <div class="container-fluid px-5" >
+    <% if local_assigns.has_key? :candle %>
+      <h1 class="display-4 fw-bold text-center"><%= candle.name %></h1>
+    <% else %>
+      <h1 class="display-4 fw-bold text-center">Oil in Wax</h1>
+    <% end %>
+    <div class="container-fluid p-2 d-flex justify-content-center">
+      <% if local_assigns.has_key? :candle %>
+        <%= image_tag 'candle_backdrop', class: "splash-image"%>
+      <% else %>
+        <%= image_tag 'candle_backdrop', class: "splash-image"%>
+      <% end %>
+    </div>
+    <div class="container-fluid p-2">
+      <% if local_assigns.has_key? :candle %>
+        <p class=" fs-5 text-center"><%= candle.description %></p>
+        <p class=" fs-6 text-center"><strong>Scents: </strong>
+          <% candle.scents.each do |scent| %>
+            <%= "#{scent.capitalize}, " %>
+          <% end %>
+        </p>
+        <p class=" fs-6 text-center"><strong>Ingredients: </strong>
+          <% candle.ingredients.each do |ingredient| %>
+            <%= "#{ingredient.capitalize}, " %>
+          <% end %>
+        </p>
+      <% else %>
+        <p class=" fs-5 text-center">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+      <% end %>
+    </div>
+  </div>
+</div>

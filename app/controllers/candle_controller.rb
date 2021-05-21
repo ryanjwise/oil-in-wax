@@ -22,7 +22,8 @@ class CandleController < ApplicationController
   end
 
   def show
-
+    @store = @candle.store
+    @candles = @store.candles.sample(10)
   end
 
   def edit
