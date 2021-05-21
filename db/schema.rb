@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_081218) do
 
   create_table "candles", force: :cascade do |t|
     t.bigint "store_id", null: false
-    t.integer "price"
+    t.decimal "price"
     t.integer "stock"
     t.string "name"
     t.text "description"
