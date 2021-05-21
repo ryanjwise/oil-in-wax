@@ -17,8 +17,10 @@
   <% end %>
 </div>
 
-<div class="card-container p-1 my-2 mx-5 d-flex justify-content-between flex-wrap">
-  <% @candles.each do |candle| %>
-    <%= render 'shared/card', candle: candle%>
-  <% end %>
+<div class="card-container p-1 my-2 mx-5">
+  <div class="card-group justify-content-between flex-wrap">
+    <% @candles.each do |candle| %>
+      <%= render 'shared/card', candle: candle%>
+    <% end %>
+  </div>
 </div>

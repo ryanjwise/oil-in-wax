@@ -1,0 +1,32 @@
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4 d-flex flex-column">
+      <%= image_tag 'candle_backdrop', style: " width:180px"%>
+      <%= link_to 'Edit', root_path, class:'m-1 btn btn-primary' %>
+      <%= link_to 'Deactivate Listing', root_path, class:'m-1 btn btn-primary disabled' %>
+      <%= link_to 'Delete Listing', root_path, class:'m-1 btn btn-danger justify-self-end' %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Name: </strong><%= candle.name %></h5>
+        <p class="card-text"><strong>Description: </strong><%= candle.description %></p>
+        <p class="card-text">
+          <small class="text-muted"><strong>Scents: </strong>
+            <% candle.scents.each do |i| %>
+              <%= "#{i}," %>
+            <% end %>
+          </small>
+        </p>
+        <p class="card-text">
+          <small class="text-muted"><strong>Ingredients: </strong>
+            <% candle.ingredients.each do |i| %>
+              <%= "#{i}," %>
+            <% end %>
+          </small>
+        </p>
+        <span class="card-text badge bg-primary"><%= number_to_currency(candle.price) %></span>
+        <span class="card-text badge bg-secondary "><%= candle.stock %> In Stock</span>
+      </div>
+    </div>
+  </div>
+</div>

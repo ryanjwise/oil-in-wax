@@ -5,14 +5,7 @@
 <h2>Active stock</h2>
 
 <% @candles.each do |candle| %>
-  <ul>
-    <li>Name: <%= candle.name %></li>
-    <li>Description: <%= candle.description %></li>
-    <li>Scents: <%= candle.scents %></li>
-    <li>Ingredients: <%= candle.ingredients %></li>
-    <li>Price: <%= candle.price %></li>
-    <li>Stock: <%= candle.stock %></li>
-  </ul>
+  <%= render 'stock-card', candle: candle %>
 <% end %>
 
 <%= link_to 'Create a Listing', root_path, class:'btn btn-primary' %>
