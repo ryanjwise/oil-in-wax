@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'store/show',      to: 'store#show', as: 'store_show'
   get 'store/admin',     to: 'store#admin', as: 'store_admin'
   get 'home/index',      to: 'home#index', as: 'home'
-  get '/',               to: 'home#index', as: 'home'
   
   root to: 'home#index'
   devise_for :users
