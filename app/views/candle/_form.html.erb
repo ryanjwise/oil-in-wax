@@ -1,3 +1,9 @@
+<ul>
+  <% candle.errors.full_messages do |message| %>
+    <li style='color: maroon'><%= message %></li>
+  <% end %>
+</ul>
+
 <%= form_with model: candle, url: url, local: true do |form| %>
   <div class='mx-5 mb-3'>
     <div class='mb-3'>
@@ -23,6 +29,10 @@
     <div class='mb-3'>
       <%= form.label :ingredients, class:'form-label' %>
       <%= form.text_field :ingredients, class:'form-control' %>
+    </div>
+    <div class='mb-3'>
+      <%= form.label :picture, class:'form-label' %>
+      <%= form.file_field :picture, accept: 'image/png, image/jpg, image/jpeg, image/gif', class:'form-control' %>
     </div>
     <%= form.submit class:'btn btn-primary'%>
   </div>

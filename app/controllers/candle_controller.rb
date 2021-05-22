@@ -36,6 +36,8 @@ class CandleController < ApplicationController
     if @candle.update(parameters)
       redirect_to store_admin_path
     else
+      # Attempting to add flash messages on failed model validation
+      # flash[:form_errors] = @candle.errors.full_messages
       render :edit
     end
   end
@@ -47,6 +49,6 @@ class CandleController < ApplicationController
   end
 
   def candle_params
-    params.require(:candle).permit(:name, :description, :stock, :price, :scents, :ingredients)
+    params.require(:candle).permit(:name, :description, :stock, :price, :scents, :ingredients, :picture)
   end
 end
