@@ -1,5 +1,9 @@
 <div class="card" style="min-width:220px; max-width:250px;">
-  <%= image_tag 'candle_backdrop', class: "card-img-top"%>
+  <% if candle.picture.attached? %>
+    <%= image_tag candle.picture, class: "card-img-top"%>
+  <% else %>
+    <%= image_tag 'https://via.placeholder.com/1600x900?text=No+Image+Available', class: "card-img-top", style: "width:100%"%>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= candle.name %></h5>
     <p class="card-text"><%= candle.description %></p>
