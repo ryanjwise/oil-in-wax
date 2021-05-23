@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'cart/new'
   get 'cart/create'
   get 'cart/edit'
-  get 'cart/update'
+  post 'cart/add',              to: 'cart#add_to_cart',as: 'cart_add'
   delete 'cart/destroy',       to: 'cart#destroy',    as: 'cart_destroy'
   get 'candle/new',            to: 'candle#new'
   post 'candle/create',        to: 'candle#create',   as: 'candle_create'

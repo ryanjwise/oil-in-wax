@@ -5,7 +5,16 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    Cart Contents to go here
-          <%= link_to 'Delete Cart', cart_destroy_path, method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-danger' %>
+    <ul class="list-group">
+      <% current_user.cart.candle_carts.each do |item| %>
+          <%= link_to(
+            "#{item.quantity}x #{item.candle.name} for #{number_to_currency(item.candle.price)} each. Totalling: #{number_to_currency(item.candle.price*item.quantity)}", 
+            candle_show_path(item.candle.id), 
+            class: "list-group-item list-group-item-action list-group-item-primary"
+            )%>
+      <% end %>
+    </ul>
+    <%= link_to 'Purchase', home_path, class:'m-1 btn btn-primary disabled' %>
+    <%= link_to 'Delete Cart', cart_destroy_path, method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-danger' %>
   </div>
 </div>

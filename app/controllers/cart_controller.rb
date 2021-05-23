@@ -6,11 +6,11 @@ class CartController < ApplicationController
   end
   
   def create
-    @cart = current_user.build_cart(cart_params)
-    @cart.status = 'shopping'
+    @cart = current_user.build_cart(status: 'shopping')
     if @cart.save
-      redirect_to :back
+      update
     else
+      flash[:alert] = 'Something went wrong, unable to add to cart'
       redirect_to root_path
     end
   end
@@ -18,7 +18,29 @@ class CartController < ApplicationController
   def edit
   end
 
+  def add_to_cart
+    if current_user.cart
+      update
+    else
+      create
+    end
+  end
+
   def update
+    candle = Candle.find(params[:candle_id])
+    quantity = params[:quantity]
+    item = CandleCart.new(
+      candle: candle,
+      cart: current_user.cart,
+      quantity: quantity
+    )
+
+    if item.save
+      redirect_to candle_show_path(candle.id)
+    else
+      flash[:alert] = "Something went wrong"
+      redirect_to home_path
+    end
   end
 
   def destroy
