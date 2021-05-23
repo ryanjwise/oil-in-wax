@@ -1,10 +1,7 @@
 class CartController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cart, only: [:edit, :update, :destroy]
+  before_action :set_cart, only: [:edit, :update, :destroy, :remove_from_cart]
 
-  def new
-  end
-  
   def create
     @cart = current_user.build_cart(status: 'shopping')
     if @cart.save
@@ -15,14 +12,22 @@ class CartController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def add_to_cart
     if current_user.cart
       update
     else
       create
+    end
+  end
+
+  def remove_from_cart
+    if current_user.cart.candle_carts.count == 1
+      destroy
+    else
+      item = CandleCart.find(params[:id])
+      item.destroy
+      flash[:alert] = "Succesfully Removed"
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -46,7 +51,7 @@ class CartController < ApplicationController
   def destroy
     @cart.destroy
     flash[:alert] = "Succesfully Destroyed"
-    redirect_to home_path
+    redirect_back fallback_location: root_path
   end
 
   private
