@@ -1,0 +1,11 @@
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Show Cart
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Cart Contents to go here
+          <%= link_to 'Delete Cart', cart_destroy_path, method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-danger' %>
+  </div>
+</div>
