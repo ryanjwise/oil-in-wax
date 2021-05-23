@@ -11,6 +11,34 @@
     <%= f.input :email,
                 required: true,
                 input_html: { autocomplete: "email" }%>
+
+    <%= f.fields_for :address, resource.build_address do |address| %>
+      <div class="form-inputs my-4">
+        <%= address.input :street_num,
+                      label: "Street Number",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Street Number" }%>
+        <%= address.input :street,
+                      label: "Street Name",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Street Name" }%>
+        <%= address.input :city,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "City" }%>
+        <%= address.input :state,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "State" }%>
+        <%= address.input :post_code,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Post Code" }%>
+      </div>
+    <% end %>
+
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -20,8 +48,9 @@
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+
+  <div class="form-actions my-2">
+    <%= f.button :submit, "Sign up", class:"btn btn-primary" %>
   </div>
 <% end %>
 
