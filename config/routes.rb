@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :purchases, only: [:new, :create]
+  resources :purchases, only: [:new]
   get 'success', to: 'purchases#success', as: 'success'
+  post 'purchases/webhook', to: 'purchases#webhook'
 
   get 'cart/create'
   get 'cart/edit'
