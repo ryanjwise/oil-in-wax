@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_104643) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "total_price"
+    t.decimal "total_price"
     t.string "receipt_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
