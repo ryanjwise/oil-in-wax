@@ -21,10 +21,7 @@
         </div>
       <% end %>
     </ul>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <%= link_to 'Proceed to Checkout', new_purchase_path, class:'m-1 btn btn-outline-primary' %>
-        <%= link_to 'Delete Cart', cart_destroy_path(current_user.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-outline-danger' %>
-      </div>
+
     <% case current_user.cart.status %>
     <% when 'shopping' %>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -42,5 +39,6 @@
         <p>Transaction completed successfullt</p>
       </div>
     <% end %>
+    
   </div>
 </div>
