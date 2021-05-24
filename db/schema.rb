@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_030045) do
+ActiveRecord::Schema.define(version: 2021_05_23_104643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,16 +81,28 @@ ActiveRecord::Schema.define(version: 2021_05_22_030045) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.integer "status"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "candle_id", null: false
+    t.bigint "order_id", null: false
+    t.integer "quantity"
+    t.decimal "unit_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candle_id"], name: "index_order_items_on_candle_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "total_price"
+    t.decimal "total_price"
     t.string "receipt_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "cart_id"
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -121,6 +133,9 @@ ActiveRecord::Schema.define(version: 2021_05_22_030045) do
   add_foreign_key "candle_carts", "candles"
   add_foreign_key "candle_carts", "carts"
   add_foreign_key "candles", "stores"
+  add_foreign_key "carts", "users"
+  add_foreign_key "order_items", "candles"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "stores", "users"
 end

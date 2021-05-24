@@ -2,8 +2,10 @@ class Candle < ApplicationRecord
   belongs_to :store
 
   has_one_attached :picture
-  has_many :candle_carts, dependent: :destroy
+  has_many :candle_carts
   has_many :carts, through: :candle_carts
+  has_many :order_items
+  has_many :orders, through: :order_items
 
   validate :acceptable_image
 

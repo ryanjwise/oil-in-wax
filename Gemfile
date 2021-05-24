@@ -13,6 +13,8 @@ gem 'simple_form'
 gem 'devise'
 # Faker
 gem 'faker'
+# Stripe
+gem 'stripe'
 
 
 ############ End added by ryanjwise ############

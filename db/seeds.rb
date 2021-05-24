@@ -10,10 +10,24 @@ puts 'Destroying old records'
 User.destroy_all
 
 puts 'Seeding started'
-puts 'Creating tests user'
+puts 'Creating tests users'
 
 test_store_user = User.create(username: 'test_store', email:'test_store@address.com', password: 'password')
+test_store_user.create_address(
+  street_num: 28,
+  street: "Bakers Lane",
+  city: "Melbourne",
+  state: "Victoria",
+  post_code: 3285
+)
 test_storeless_user = User.create(username: 'test_storeless', email:'test_storeless@address.com', password: 'password')
+test_storeless_user.create_address(
+  street_num: 15,
+  street: "Hazards Avenue",
+  city: "Warrain",
+  state: "Tasmania",
+  post_code: 7652
+)
 
 puts 'test users created'
 puts 'creating test store'

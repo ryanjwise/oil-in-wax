@@ -12,19 +12,31 @@
 
   <body>
     <header>
-    <%= render 'shared/navbar' %>
-    <% unless notice.nil? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% unless alert.nil? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-  </header>
-  <main class="px-4 py-3 mx-5 mt-5">
-    <%= yield %>
-  </main>
-  <footer>
-    <%= render 'shared/footer' %>
-  </footer>
-</body>
+      <%= render 'shared/navbar' %>
+
+      <% unless notice.nil? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% unless alert.nil? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+      <% if current_user %>
+        <% if current_user.cart %>
+          <div class="px-4 mx-5 my-1">
+            <%= render 'shared/cart' %>
+          </div>
+        <% end %>
+      <% end %>
+
+    </header>
+
+    <main class="px-4 py-3 mx-5 mt-5">
+      <%= yield %>
+    </main>
+
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
+  </body>
 </html>

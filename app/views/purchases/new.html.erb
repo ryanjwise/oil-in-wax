@@ -1,0 +1,19 @@
+<h1>Checkout</h1>
+
+<article>
+  <% @items.each do |item| %>
+    <p><%= "#{item.quantity}x #{item.candle.name} @ #{item.candle.price} for #{number_to_currency(item.candle.price*item.quantity)}" %></p>
+  <% end %>
+  <p><strong>Total: <%= pretty_amount(@amount) %></strong></p>
+</article>
+
+<button data-stripe="payment" class="btn btn-outline-primary">Purchase!</button>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+    const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :publishable_key) %>");
+    stripe.redirectToCheckout({
+      sessionId: "<%= @session_id %>" 
+    });
+  });
+</script>
