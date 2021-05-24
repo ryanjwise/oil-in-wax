@@ -1,16 +1,16 @@
-<h1>Purchases#new</h1>
-<p>Find me in app/views/purchases/new.html.erb</p>
+<h1>Checkout</h1>
 
 <%= form_tag purchases_path do %>
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
   <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
+    <% @items.each do |item| %>
+      <p><%= "#{item.quantity}x #{item.candle.name} @ #{item.candle.price} for #{number_to_currency(item.candle.price*item.quantity)}" %></p>
     <% end %>
-    <label class="amount">
-      <span>Amount: <%= pretty_amount(@amount) %></span>
-    </label>
+    <p><strong>Total: <%= pretty_amount(@amount) %></strong></p>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

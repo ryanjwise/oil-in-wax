@@ -8,7 +8,11 @@
     <ul class="list-group">
       <% current_user.cart.candle_carts.each do |item| %>
         <div>
+          <% if item.cart.status == 'shopping' %>
             <%= link_to "Remove", cart_remove_path(id: item), method: :delete, class: "m-1 btn btn-outline-danger btn-sm"%>
+          <% else %>
+            <%= link_to "Remove", cart_remove_path(id: item), method: :delete, class: "m-1 btn btn-outline-danger btn-sm disabled"%>
+          <% end %>
           <%= link_to(
             "#{item.quantity}x #{item.candle.name} for #{number_to_currency(item.candle.price)} each. Totalling: #{number_to_currency(item.candle.price*item.quantity)}", 
             candle_show_path(item.candle.id), 
@@ -17,9 +21,22 @@
         </div>
       <% end %>
     </ul>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <%= link_to 'Purchase', home_path, class:'m-1 btn btn-outline-primary disabled' %>
-      <%= link_to 'Delete Cart', cart_destroy_path(current_user.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-outline-danger' %>
-    </div>
+    <% case current_user.cart.status %>
+    <% when 'shopping' %>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <%= link_to 'Proceed to Checkout', new_purchase_path, class:'m-1 btn btn-outline-primary' %>
+        <%= link_to 'Delete Cart', cart_destroy_path(current_user.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-outline-danger' %>
+      </div>
+    <% when 'pending' %>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <p>Transaction pending, please wait</p>
+        <%= link_to 'Proceed to Checkout', new_purchase_path, class:'m-1 btn btn-outline-primary disabled' %>
+        <%= link_to 'Delete Cart', cart_destroy_path(current_user.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-outline-danger disabled' %>
+      </div>
+    <% when 'complete' %>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <p>Transaction completed successfullt</p>
+      </div>
+    <% end %>
   </div>
 </div>
