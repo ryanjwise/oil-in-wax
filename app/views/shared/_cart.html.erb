@@ -19,7 +19,7 @@
     </ul>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= link_to 'Purchase', home_path, class:'m-1 btn btn-outline-primary disabled' %>
-      <%= link_to 'Delete Cart', cart_destroy_path, method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-outline-danger' %>
+      <%= link_to 'Delete Cart', cart_destroy_path(current_user.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-outline-danger' %>
     </div>
   </div>
 </div>
