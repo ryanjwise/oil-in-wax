@@ -25,7 +25,7 @@ This is where Oil in Wax comes in, it can provide an easy to use platform for se
 
 ## R9/10 Links:
 
-**Deployed App:**
+**Deployed App:** https://oil-in-wax.herokuapp.com
 
 **Repository:** https://github.com/ryanjwise/oil-in-wax
 
@@ -53,48 +53,126 @@ Receipt Mailing through an automated service
 
 ### Sitemap
 
-### Screenshots
-
-### Target audience
-
-### Tech stack (e.g. html, css, deployment platform, etc)
-
-## R12 User stories for your app
-
-## R13 Wireframes for your app
-
-## R14 An ERD for your app
-
-## R15 Explain the different high-level components (abstractions) in your app
-
-## R16 Detail any third party services that your app will use
-
-## R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
-
-## R18 Discuss the database relations to be implemented in your application
-
-## R19 Provide your database schema design
-
-## R20 Describe the way tasks are allocated and tracked in your project
-## R11 Description of your marketplace app (website), including:
-
-### Purpose
-
-### Functionality / features
-
-### Sitemap
+![Sitemap](docs/Oil-in-wax-sitemap.png)
 
 ### Screenshots
 
 ### Target audience
 
+Oil-In-Wax serves 2 audiences. People who like to buy candles, and small independent candle makers in Australia.
 ### Tech stack (e.g. html, css, deployment platform, etc)
+
+- HTML
+- SCSS
+- Javascript
+- Ruby
+- Ruby on Rails
+- AWS S3 (3rd Party Image Storage)
+- Stripe (3rd Party Payments)
+- Heroku (Deployment Platform)
 
 ## R12 User stories for your app
 
 ## R13 Wireframes for your app
 
+### Navigation
+
+#### Tablet
+
+![Tablet Nav Wireframe](docs/wireframes/OIW_Wireframe_Nav_Home_Tablet.png)
+
+#### Mobile
+
+![Mobile Nav Wireframe](docs/wireframes/OIW_Wireframe_Nav_Mobile.png)
+![Mobile Nav Wireframe](docs/wireframes/OIW_Wireframe_Nav_No-User_Mobile.png)
+
+### Home
+
+#### Desktop
+
+![Desktop Home](docs/wireframes/OIW_Wireframe_Home_Desktop.png)
+
+#### Tablet
+
+![Tablet Home](docs/wireframes/OIW_Wireframe_Home_Tablet.png)
+
+#### Mobile
+
+![Mobile Home](docs/wireframes/OIW_Wireframe_Home_Mobile.png)
+
+### Profile
+
+#### Desktop
+
+![Desktop Profile](docs/wireframes/OIW_Wireframe_Profile_Desktop.png)
+
+#### Tablet
+
+![Tablet Profile](docs/wireframes/OIW_Wireframe_Profile_Tablet.png)
+
+#### Mobile
+
+![Mobile Profile](docs/wireframes/OIW_Wireframe_Profile_Mobile.png)
+
+### Store
+
+#### Desktop
+
+![Desktop Store View](docs/wireframes/OIW_Wireframe_Store_show_Desktop.png)
+
+#### Tablet
+
+![Tablet Store View](docs/wireframes/)
+
+#### Mobile
+
+![Mobile Store View](docs/wireframes/OIW_Wireframe_Store_Show_Mobile.png)
+
+### Administration
+
+#### Desktop
+
+![Desktop Store Administration](docs/wireframes/OIW_Wireframe_administration_desktop.png)
+
+#### Tablet
+
+![Tablet Store Administration](docs/wireframes/OIW_Wireframe_administration_tablet.png)
+
+#### Mobile
+
+![Mobile Store Administration](docs/wireframes/OIW_Wireframe_administration_mobile.png)
+
+### Candle
+
+#### Desktop
+
+![Desktop Candle Show](docs/wireframes/OIW_Wireframe_Candle_Show_Desktop.png)
+
+#### Tablet
+
+![Tablet Candle Show](docs/wireframes/OIW_Wireframe_Candle_Show_Tablet.png)
+
+#### Mobile
+
+![Mobile Candle Show](docs/wireframes/OIW_Wireframe_Candle_Show_Tablet.png)
+
+### Cart
+
+#### Desktop
+
+![Desktop Cart View](docs/wireframes/OIW_Wireframe_Cart_Desktop.png)
+
+#### Tablet
+
+![Tablet Cart View](docs/wireframes/)
+
+#### Mobile
+
+![Mobile Cart View](docs/wireframes/OIW_Wireframe_Cart_Mobile.png)
+
 ## R14 An ERD for your app
+
+![Oil-in-Wax ERD](docs/20210525_Oil-in-Wax_ERD.png)
 
 ## R15 Explain the different high-level components (abstractions) in your app
 
