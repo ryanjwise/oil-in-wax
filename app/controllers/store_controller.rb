@@ -8,6 +8,7 @@ class StoreController < ApplicationController
   end
 
   def show
+    @store = Store.find(params[:id])
     @candles = @store.candles
   end
 

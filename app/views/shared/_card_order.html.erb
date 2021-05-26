@@ -1,0 +1,16 @@
+<div class="card" style="min-width:220px; max-width:250px;">
+  <div class="card-body">
+    <h4 class="card-title text-center">
+      <%= info[:store_name] %>
+    </h4>
+    <p class="card-text text-center">
+      <%= info[:created_at].strftime('%d-%m-%Y') %>
+    </p>
+    <p class="card-text text-center">
+      <strong><%= number_to_currency(info[:total_price]) %></strong>
+    </p>
+    <div class="card-footer d-flex justify-content-center">
+      <%= link_to "View Receipt", info[:receipt_url], class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>
