@@ -4,7 +4,6 @@ A 2 sided marketplace for candle makers and candle lovers alike
 
 ## R7 Identification of the problem you are trying to solve by building this particular marketplace app.
 
-
 Covid-19 Lockdowns saw a boom in new hobbies and DIY activities. One of such popular activities was candle making. A relatively simple and cheap activity that produces a tangible product.
 
 The problem is that once people have made these candles, they need to be able to dispose of them thoughtfully, beyond giving them to friends and family, this often meant the sale of their product.
@@ -73,6 +72,47 @@ Oil-In-Wax serves 2 audiences. People who like to buy candles, and small indepen
 
 ## R12 User stories for your app
 
+### Site User
+
+- [x] As a site user, I {want to be able to log in}, {so that all of my information is available when I need it}.
+- [x] As a site user, I {want the signin process to be simple}, {so that I can get straight to what I'm looking for}.
+
+### Seller
+
+- [ ] As a seller, I {want to be able to have my own brand identity}, {so that I can build my brand and grow my customer base}.
+- [ ] As a seller, I {want to keep track of my previous sales}, {so that I can tell whats popular}.
+- [x] As a seller, I {want to list the stock that I can produce}, {so that I can check what I am selling and what I have sold in the past}.
+- [ ] As a seller, I {want to have easy access to shipping information of past orders}, {so that my customers can get their goods}.
+- [x] As a seller, I {want to be able to sell multiple items in a single transaction}, {so that I can easily send things in the same shipment}.
+- [x] As a seller, I {want to be able to sell multiple items in a single transaction}, {so that I my customers find it easier to buy more items}.
+- [x] As a seller, I {want to be able to sell multiple items in a single transaction}, {so that I my customers are encouraged to buy more items from me}.
+- [ ] As a seller, I {want to be able to close the store to new purchases when I need to}, {so that I can take a break or catch up on back orders}.
+- [ ] As a seller, I {want to remove stock from sale when I need to}, {to ensure that I am able to focus my produce to items that sell well, or remove them when ingregients become unavailable}.
+- [x] As a seller, I {want only verified customers to place orders}, {so that I can be sure shipping information is correct}.
+- [x] As a seller, I {want to be able to update stock prices}, {so that I can stay profitable or competitive}.
+- [ ] As a seller, I {want to be able to duplicate existing stock as templates}, {so that I can quickly create new 'versions' of existing product}.
+- [ ] As a seller, I {want to be easily found by loyal return customers}, {so that I can retain their business and build rapport}.
+- [ ] As a seller, I {want to be notified when somebody places an order}, {so that I can track and manage my forfillments}.
+- [ ] As a seller, I {want people to be able to leave reviews of products that they like}, {so that I can update my listings to better meet their needs}.
+
+### Buyer
+
+- [ ] As a buyer, I {want to be able to see past orders}, {so that I know what I've bought and from whom}.
+- [ ] As a buyer, I {want to be able to see details of past orders}, {so that I review what I have recieved}.
+- [ ] As a buyer, I {want to be able to search for scents that I like}, {so that I don't have to search through everything when I'm after something specific}.
+- [ ] As a buyer, I {want to be able to filter specific ingredients}, {so that I can avoid potentially toxic, harmful or ethically damaging ingredients}.
+- [ ] As a buyer, I {want to be able to easitly buy from sellers I have bought from before}, {so that I can support business' I trust}.
+- [x] As a buyer, I {want to only have to enter my shipping information once}, {so that I don't have to type the same information over, and over again}.
+- [ ] As a buyer, I {want the details of my order to stay the same should the seller update their stock}, {so that my past orders remain a source of truth}.
+- [ ] As a buyer, I {want to know where my seller is based}, {so that I can buy from local people}.
+- [x] As a buyer, I {want a simple purchase experience}, {so that buying candles is easy and not a chore}.
+- [x] As a buyer, I {want an easy way to find new sellers}, {so that I can find high quality makers with ease}.
+- [ ] As a buyer, I {want to see what other people think of products}, {so that I can make an informed decision}.
+- [ ] As a buyer, I {want to be able to update my shipping details}, {so that I can keep my account if I move or need dekivery somewhere else}.
+- [ ] As a buyer, I {want to be able to update my password}, {so that I cna keep my account secure if my password becomes compromised}.
+- [ ] As a buyer, I {want to be able to update my email}, {so that I can continue to use my account should I migrate to a new email address}.
+- [x] As a buyer, I {want to see what a product looks like before purchasing}, {so that I have good expectations about what I am buying}.
+
 ## R13 Wireframes for your app
 
 ### Navigation
@@ -120,10 +160,6 @@ Oil-In-Wax serves 2 audiences. People who like to buy candles, and small indepen
 
 ![Desktop Store View](docs/wireframes/OIW_Wireframe_Store_show_Desktop.png)
 
-#### Tablet
-
-![Tablet Store View](docs/wireframes/)
-
 #### Mobile
 
 ![Mobile Store View](docs/wireframes/OIW_Wireframe_Store_Show_Mobile.png)
@@ -162,10 +198,6 @@ Oil-In-Wax serves 2 audiences. People who like to buy candles, and small indepen
 
 ![Desktop Cart View](docs/wireframes/OIW_Wireframe_Cart_Desktop.png)
 
-#### Tablet
-
-![Tablet Cart View](docs/wireframes/)
-
 #### Mobile
 
 ![Mobile Cart View](docs/wireframes/OIW_Wireframe_Cart_Mobile.png)
@@ -178,6 +210,10 @@ Oil-In-Wax serves 2 audiences. People who like to buy candles, and small indepen
 
 ## R16 Detail any third party services that your app will use
 
+- Stripe
+- AWS
+- Heroku
+- Placeholdit
 ## R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
 
 ## R18 Discuss the database relations to be implemented in your application
