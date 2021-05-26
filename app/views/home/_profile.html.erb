@@ -1,0 +1,45 @@
+<div class="bg-secondary text-white rounded-3">
+  <div class="container-fluid p-5" >
+    <h1 class="display-4 fw-bold text-center"><%= user.username %></h1>
+
+    <div class="row row-cols-4 py-4">
+      <div class="col">
+      </div>
+      <div class="col">
+        <p class=" fs-5 my-0 text-start"><strong>Email Address: </strong></p>
+      </div>
+      <div class="col">
+        <p class=" fs-5 my-0 text-start">
+          <%= user.email %> 
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
+    <div class="row row-cols-4 py-4">
+      <div class="col">
+      </div>
+      <div class="col">
+        <p class=" fs-5 my-0 text-start"><strong>Shipping Address: </strong></p>
+      </div>
+      <div class="col">
+        <p class=" fs-5 my-0 text-start">
+          <%= user.address.street_num %> 
+          <%= user.address.street %>
+        </p>
+        <p class=" fs-5 my-0 text-start">
+          <%= user.address.city %> 
+          <%= user.address.state %>, 
+          <%= user.address.post_code %>
+        </p>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex-col justify-content-md-center">
+      <%= link_to 'Update Address', edit_address_path, class:'m-2 btn btn-outline-light' %>
+      <%= link_to 'Update Email or Password', edit_user_registration_path, class:'m-2 btn btn-outline-light' %>
+    </div>
+  </div>
+</div>
