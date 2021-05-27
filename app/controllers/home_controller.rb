@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, only: [:profile, :edit_address, :update_address]
   before_action :set_user
+  before_action :set_address
   def index
     @candles = Candle.all.sample(10)
   end
@@ -10,16 +11,16 @@ class HomeController < ApplicationController
   end
 
   def edit_address
-    @address = @user.address
   end
 
   def update_address
-    if @user.address.update(address_params)
+    if @address.update(address_params)
       redirect_to profile_path
     else
       # Attempting to add flash messages on failed model validation
-      # flash[:form_errors] = @candle.errors.full_messages
-      render :edit
+      # Below method does not seem to work
+      # flash[:form_errors] = @address.errors.full_messages
+      render :edit_address
     end
   end
 
@@ -27,6 +28,10 @@ class HomeController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_address
+    @address = @user.address
   end
 
   def address_params
