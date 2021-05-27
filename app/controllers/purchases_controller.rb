@@ -64,7 +64,7 @@ class PurchasesController < ApplicationController
   def set_charge_amount(items)
     amount = 0
     items.each do |item|
-      amount += item[:amount]
+      amount += (item[:amount])*(item[:quantity])
     end
     amount.to_f
   end
