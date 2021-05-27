@@ -1,3 +1,4 @@
+# Module no longer in use
 module StripeTool
   def self.create_customer(email:, stripe_token:)
     Stripe::Customer.create(
