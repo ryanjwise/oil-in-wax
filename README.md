@@ -36,25 +36,41 @@ The purpose of Oil in Wax is to facilitate the sale candles made by small, indep
 
 ### Functionality / features
 
-User Accounts: Every buyer and seller on the platform must have an account. This allows tracking of purchases and sales accross the site
+**User Accounts:** Every buyer and seller on the platform must have an account. This allows tracking of purchases and sales across the site
 
-Sales Listings: Every user will have the option to sell products on the store, when they do so they will be able to see all of their posted listings from one place, take down or edit postings that they have created
+**Sales Listings:** Every user will have the option to sell products on the store, when they do so they will be able to see all of their posted listings from one place, as well as take down or edit postings that they have created.
 
-Storage of candle types for sellers to quicky template new listings
+**Cart System:** Every user will have the capacity to purchase multiple line items per transaction. They will be able to update and delete their cart until such a time as they make a purchase.
 
-Payment through stripe
+**Payment System:** Payment system will be implemented using Stripe checkout
 
-Order system to purchase multiple items from the same seller
-
-Search/Filters: Users will be able to narrow down the list of shown candles based on scents and ingredients
-
-Receipt Mailing through an automated service
+**Receipt Tracking:** A user will be able to see a history of orders made on the site, they will be able to see details of their transactions and view receipts for purchases made.
 
 ### Sitemap
 
 ![Sitemap](docs/Oil-in-wax-sitemap.png)
 
 ### Screenshots
+
+**Landing page**
+
+![Landing Page](docs/Screenshot-Landing-Page.png)
+
+**Profile page**
+
+![Profile Page](docs/Screenshot-Profile-Page.png)
+
+**Admin page**
+
+![Admin page](docs/Screenshot-Admin-Page.png)
+
+**Checkout page**
+
+![Checkout Page](docs/Screenshot-Checkout-Page.png)
+
+**Cart page**
+
+![Cart Display](docs/Screenshot-Cart-Page.png)
 
 ### Target audience
 
@@ -112,20 +128,20 @@ Oil-In-Wax serves 2 audiences. People who like to buy candles, and small indepen
 
 ### Buyer
 
-- [ ] As a buyer, I {want to be able to see past orders}, {so that I know what I've bought and from whom}.
-- [ ] As a buyer, I {want to be able to see details of past orders}, {so that I review what I have recieved}.
+- [x] As a buyer, I {want to be able to see past orders}, {so that I know what I've bought and from whom}.
+- [x] As a buyer, I {want to be able to see details of past orders}, {so that I review what I have recieved}.
 - [ ] As a buyer, I {want to be able to search for scents that I like}, {so that I don't have to search through everything when I'm after something specific}.
 - [ ] As a buyer, I {want to be able to filter specific ingredients}, {so that I can avoid potentially toxic, harmful or ethically damaging ingredients}.
-- [ ] As a buyer, I {want to be able to easitly buy from sellers I have bought from before}, {so that I can support business' I trust}.
+- [ ] As a buyer, I {want to be able to easily buy from sellers I have bought from before}, {so that I can support business' I trust}.
 - [x] As a buyer, I {want to only have to enter my shipping information once}, {so that I don't have to type the same information over, and over again}.
-- [ ] As a buyer, I {want the details of my order to stay the same should the seller update their stock}, {so that my past orders remain a source of truth}.
+- [x] As a buyer, I {want the details of my order to stay the same should the seller update their stock}, {so that my past orders remain a source of truth}.
 - [ ] As a buyer, I {want to know where my seller is based}, {so that I can buy from local people}.
 - [x] As a buyer, I {want a simple purchase experience}, {so that buying candles is easy and not a chore}.
 - [x] As a buyer, I {want an easy way to find new sellers}, {so that I can find high quality makers with ease}.
 - [ ] As a buyer, I {want to see what other people think of products}, {so that I can make an informed decision}.
-- [ ] As a buyer, I {want to be able to update my shipping details}, {so that I can keep my account if I move or need dekivery somewhere else}.
-- [ ] As a buyer, I {want to be able to update my password}, {so that I cna keep my account secure if my password becomes compromised}.
-- [ ] As a buyer, I {want to be able to update my email}, {so that I can continue to use my account should I migrate to a new email address}.
+- [x] As a buyer, I {want to be able to update my shipping details}, {so that I can keep my account if I move or need dekivery somewhere else}.
+- [x] As a buyer, I {want to be able to update my password}, {so that I cna keep my account secure if my password becomes compromised}.
+- [x] As a buyer, I {want to be able to update my email}, {so that I can continue to use my account should I migrate to a new email address}.
 - [x] As a buyer, I {want to see what a product looks like before purchasing}, {so that I have good expectations about what I am buying}.
 
 ## R13 Wireframes for your app
