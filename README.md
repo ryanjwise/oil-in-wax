@@ -508,3 +508,35 @@ updated_at             : datetime
 ```
 
 ## R20 Describe the way tasks are allocated and tracked in your project
+
+For this project, a project management system hosted by [Quire.io](https://quire.io/) was utilised.
+Quire allowed tasks to be input in a simple To-Do list, and then be tracked using both a Kanban board and Gantt chart.
+
+See the board here: [Quire.io: ryanjwise](https://quire.io/w/ryanjwise)
+
+To populate the system I:
+
+1. Created a task labelled `Overall Project Timeline`, and gave it both a start date and end date to match the end of the project.
+1. Added in all the key project milestones:
+    1. Submission
+    1. Readme Documentation
+    1. Presentation
+1. Listed any MVP functions or components required for the project, as well as any sub-tasks they may require.
+1. Listed any desirable features or tasks that I would like to add to the project
+1. Allocated flags to each item in the list, indicating MVP status, task type(Code/Documentation/Integration), and rough expectation of time they would require.
+1. Then I arranged them in order of dependency i.e. Planning and Wireframing first, AWS before test deployment etc. 
+1. Used dependency order to assign 'due dates' in the Gantt chart
+
+Once the list was started I got to work, moving items from to do to progress on the Kanban as I worked, and flagging them as complete as required. This allowed me to focus and order my priorities as I worked, focusing first on the core application and MVP, moving onto the nice to haves later in the process.
+
+When my tasks took longer than expected, I would adjust all subsequent tasks due dates accordingly.
+
+As bugs became apparent, or I thought of new ideas I would add them to the task list. They were not however assigned a due date on the Gantt chart unless they were fatal or important.
+
+See Early Screenshots of the Gantt chart below:
+
+**2021-05-18**
+![Project Plan 2021-05-18](docs/project-plan-2021-0518.png)
+
+**2021-05-21**
+![Project Plan 2021-05-21](docs/project-plan-2021-0521.png)
