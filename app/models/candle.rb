@@ -1,5 +1,6 @@
 class Candle < ApplicationRecord
   belongs_to :store
+  after_initialize :set_initial_stock
 
   has_one_attached :picture
   has_many :candle_carts
@@ -9,6 +10,10 @@ class Candle < ApplicationRecord
 
   validate :acceptable_image
   validates :name, :price, presence: true
+
+  def set_initial_stock
+    self.stock ||= 0
+  end
 
   def acceptable_image
     return unless picture.attached?
