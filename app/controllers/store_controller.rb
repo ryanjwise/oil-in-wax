@@ -47,7 +47,7 @@ class StoreController < ApplicationController
   def destroy
     @store.destroy
     flash[:alert] = "Succesfully Destroyed"
-    redirect_to home_path
+    redirect_to root_path
   end
 
   private

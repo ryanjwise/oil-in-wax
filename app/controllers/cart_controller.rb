@@ -44,7 +44,7 @@ class CartController < ApplicationController
       redirect_to candle_show_path(candle.id)
     else
       flash[:alert] = "Something went wrong"
-      redirect_to home_path
+      redirect_to root_path
     end
   end
 

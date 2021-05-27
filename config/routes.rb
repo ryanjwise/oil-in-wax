@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :purchases, only: [:new]
-  get 'success',               to: 'purchases#success',     as: 'success'
+  get 'purchases/new',         to: 'purchases#new',         as: 'new_purchase'
+  get 'purchases/success',     to: 'purchases#success',     as: 'success'
   post 'purchases/webhook',    to: 'purchases#webhook'
 
   get 'cart/create'
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'store/show/:id',        to: 'store#show',            as: 'store_show'
   get 'store/admin',           to: 'store#admin',           as: 'store_admin'
 
+  # All references to home_path should have be removed however, route left just in case.
   get 'home/index',            to: 'home#index',            as: 'home'
   get 'home/profile',          to: 'home#profile',          as: 'profile'
   get 'home/edit/address',     to: 'home#edit_address',     as: 'edit_address'

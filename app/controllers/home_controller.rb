@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:profile]
+  before_action :authenticate_user!, only: [:profile, :edit_address, :update_address]
   before_action :set_user
   def index
     @candles = Candle.all.sample(10)

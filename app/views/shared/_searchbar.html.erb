@@ -1,6 +1,4 @@
 <div class="p-1 my-2 mx-5 bg-secondary text-white rounded-3">
-  <%= form_tag home_path, method: :get, class: "d-flex justify-content-evenly" do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Search", class: "form-control"%>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= form_tag root_path, method: :get, class: "d-flex justify-content-evenly" do %>
   <% end %>
 </div>
