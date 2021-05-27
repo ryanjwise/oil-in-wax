@@ -351,9 +351,39 @@ end
 
 ## R18 Discuss the database relations to be implemented in your application
 
-Further database normalisation is possible
+Using a relational database, each table has its own `primary key`. Each table that belongs to another, will reference the owning table using a `foreign key`. This is typically the `primary key` of the owning table, and in this implementation is always the case.
 
-Polymorphic join of blobs to all table elemetns
+Furthermore, the polymorphic active storage tables can have references to any table, in this implementation however, they only reference the Candles table.
+
+![User-Address ERD Relation](docs/erd-relations/User-Address.png)
+
+- Each `User` will have one `Address`, no more or no less. Likewise, each `Address` must have a `User`.
+- Whilst `Address` could be further normalised, given the prototypical nature of this project and the smaller number of expected users it has been normalised to this point.
+
+![User-Store ERD Relation](docs/erd-relations/User-Store.png)
+
+- Each `User` can have up to one `Store`. They may have no `Store`, but they cannot have more than one. A `Store` must have a `User`, and cannot belong to more than one `User`.
+
+![Store-Candles ERD Relation](docs/erd-relations/Store-Candles.png)
+
+- A `Store` can have no, or many `Candles`. However, each `Candle` must, and can only have one `Store`.
+
+![Candle-Carts ERD Relation](docs/erd-relations/Candle-Carts.png)
+
+- A `Candle` can be in many `Carts` through the `CandleCart` join table. Likewise, a `Cart` can hold many `Candles` through the `CandleCart` join table.
+
+![Order-Items ERD Relation](docs/erd-relations/Order-Items.png)
+
+- A `Candle` can be in many `Orders` through the `OrderItems` join table. Likewise, an `Order` can hold many `Candles` through the `OrderItems` join table.
+
+![User-Cart ERD Relation](docs/erd-relations/User-Cart.png)
+
+- Each `User` can have up to one `Cart`. They may have no `Cart`, but they cannot have more than one. A `Cart` must have a `User`, and cannot belong to more than one `User`.
+
+![User-Order ERD Relation](docs/erd-relations/User-Order.png)
+
+- Each `User` can have no, or many `Orders`. However, each `Order` must, and can only have one `User`.
+
 ## R19 Provide your database schema design
 
 ```rb
