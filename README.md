@@ -61,14 +61,28 @@ Receipt Mailing through an automated service
 Oil-In-Wax serves 2 audiences. People who like to buy candles, and small independent candle makers in Australia.
 ### Tech stack (e.g. html, css, deployment platform, etc)
 
+#### **Front-end**
+
 - HTML
 - SCSS
+- Bootstrap
 - Javascript
-- Ruby
-- Ruby on Rails
-- AWS S3 (3rd Party Image Storage)
-- Stripe (3rd Party Payments)
+
+#### **Back-end**
+
+- Ruby v2.7.2
+- Ruby on Rails v6.1.3
+- PostgreSQL
+
+#### **Deployment**
+
 - Heroku (Deployment Platform)
+
+#### **3rd-Parties & Utilities**
+
+- AWS S3 (Image Storage)
+- Stripe (Payments)
+- Quire.io (Project Management)
 
 ## R12 User stories for your app
 
