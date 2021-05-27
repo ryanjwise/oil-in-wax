@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_104643) do
   create_table "candles", force: :cascade do |t|
     t.bigint "store_id", null: false
     t.decimal "price"
+    # Stock should probably be renamed as orders
     t.integer "stock"
     t.string "name"
     t.text "description"

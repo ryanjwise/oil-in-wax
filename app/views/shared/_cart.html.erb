@@ -6,6 +6,7 @@
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     <ul class="list-group">
+      <%# Cart needs to be specified across all views, and thus cannot be passed a query through a single controller %>
       <% current_user.cart.candle_carts.each do |item| %>
         <div>
           <% if item.cart.status == 'shopping' %>
@@ -22,6 +23,7 @@
       <% end %>
     </ul>
 
+    <%# Cart needs to be specified across all views, and thus cannot be passed a query through a single controller %>
     <% case current_user.cart.status %>
     <% when 'shopping' %>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">

@@ -1,0 +1,13 @@
+<%= render 'profile', locals: {user: @user, address: @address} %>
+
+<div class="d-flex justify-content-center">
+  <h2>Past Orders:</h2>
+</div>
+<%= render 'shared/searchbar' %>
+<div class="card-container p-1 my-2 mx-5">
+  <div class="card-group justify-content-around flex-wrap">
+    <% @orders.each do |order| %>
+      <%= render 'shared/card_order', info: order.order_info%>
+    <% end %>
+  </div>
+</div>

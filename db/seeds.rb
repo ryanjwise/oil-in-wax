@@ -40,7 +40,7 @@ puts 'populating test store'
 5.times do
   test_store.candles.create(
     price: rand(200..3000).to_f / 100,
-    stock: rand(1..10),
+    stock: rand(0..10),
     name: Faker::Food.fruits,
     description: Faker::Food.description,
     ingredients: Faker::Lorem.words(number: rand(2..12)),

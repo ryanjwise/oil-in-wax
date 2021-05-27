@@ -8,6 +8,7 @@ class Candle < ApplicationRecord
   has_many :orders, through: :order_items
 
   validate :acceptable_image
+  validates :name, :price, presence: true
 
   def acceptable_image
     return unless picture.attached?
