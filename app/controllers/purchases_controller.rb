@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
           user_id: current_user.id
           }
         },
-        success_url: "#{root_url}/success",
+        success_url: "#{root_url}/purchases/success",
         cancel_url: "#{root_url}/purchases/new"
     )
     @session_id = stripe_session.id
@@ -86,6 +86,7 @@ class PurchasesController < ApplicationController
     @items = @cart.candle_carts
   end
 
+  # Used to output Items Prices In Cart View
   def set_charge_amount
     @amount = 0
     @items.each do |item|
