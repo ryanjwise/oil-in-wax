@@ -386,8 +386,125 @@ Furthermore, the polymorphic active storage tables can have references to any ta
 
 ## R19 Provide your database schema design
 
-```rb
+### Active_Storage_Attachments
 
+```rb
+record_id   : references
+blob_id     : references
+name        : string
+record_type : string
+created_at  : datetime
+```
+
+### Active_Storage_Blobs
+
+```rb
+key          : string
+filename     : string
+content_type : string
+metadata     : text
+service_name : string
+byte_size    : bigint
+checksum     : string
+created_at   : datetime
+```
+
+### Active_Storage_Variant_Records
+
+```rb
+blob_id          : references
+variation_digest : string
+```
+
+### Addresses
+
+```rb
+user_id    : references
+state      : string
+city       : string
+street     : string
+street_num : integer
+post_code  : integer
+created_at : datetime
+updated_at : datetime
+```
+
+### CandleCarts
+
+```rb
+candle_id  : references
+cart_id    : references
+quantity   : integer
+created_at : datetime
+updated_at : datetime
+```
+
+### Candles
+
+```rb
+store_id    : references
+price       : decimal
+stock       : integer
+name        : string
+description : text
+ingredients : string, array: true
+scents      : string, array: true
+created_at  : datetime
+updated_at  : datetime
+```
+
+### Carts
+
+```rb
+user_id    : references
+status     : integer
+created_at : datetime
+updated_at : datetime
+```
+
+### OrderItems
+
+There is a lot of duplication of `CandleCarts` in `OrderItems`, as `CandleCarts` are transient records. Once the transaction has been completed the `Cart` record and all attached CandleCart records are destoyed, leaving Orders, and OrderItems as the permanent records.
+
+```rb
+candle_id  : references
+order_id   : references
+quantity   : integer
+unit_price : decimal
+created_at : datetime
+updated_at : datetime
+```
+
+### Orders
+
+```rb
+user_id     : references
+total_price : decimal
+receipt_url : string
+created_at  : datetime
+updated_at  : datetime
+```
+
+### Stores
+
+```rb
+user_id    : references
+name       : string
+created_at : datetime
+updated_at : datetime
+```
+
+### Users
+
+```rb
+email                  : string
+encrypted_password     : string
+reset_password_token   : string
+username               : string
+reset_password_sent_at : datetime
+remember_created_at    : datetime
+created_at             : datetime
+updated_at             : datetime
 ```
 
 ## R20 Describe the way tasks are allocated and tracked in your project
