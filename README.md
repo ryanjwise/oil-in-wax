@@ -246,10 +246,22 @@ An `Order` is a record of sale. It is generated once the `Cart` has confirmed th
 
 ## R16 Detail any third party services that your app will use
 
-- Stripe
-- AWS
-- Heroku
-- Placeholdit
+**[Stripe](https://stripe.com/en-au):**
+
+Stripe offers a fully accredited 3rd Party payment system and API. In this implementation, it is used in perhaps the simplest way to provide payment to a single source for multiple line items via credit card. The implementation could be further enhanced to facilitate payment to multiple endpoints, through multiple different payment options.
+
+**[AWS](https://aws.amazon.com/s3/):**
+
+Amazon S3 is a cloud storage service. In this implementation, it is used to store active storage blobs or image files. When a view attempts to render an image from the polymorphic  `active storage attachments` table an API request is sent to AWS and the appropriate image is returned.
+
+**[Heroku](https://www.heroku.com/home):**
+
+Heroku is a cloud hosting service for web applications. This application is hosted on a free prototype or hobby dyno, meaning it may be a little slow to load resources when first booting up. 
+
+**[Placeholder](https://placeholder.com/):**
+
+A simple 3rd party image placeholder service. Whenever an image is not provided by a seller a placeholder will be generated in its stead using a simple web GET request to: `https://via.placeholder.com/1600x900?text=No+Image+Available'`
+
 ## R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
 
 ## R18 Discuss the database relations to be implemented in your application
