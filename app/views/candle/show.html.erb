@@ -5,10 +5,14 @@
 <%= render 'shared/hero', candle: @candle %>
 
 <div class="d-flex justify-content-between align-items-center">
-  <p class="m-0"><strong>In Stock: </strong><%= @candle.stock %></p>
+  <p class="m-0"><strong><%= number_to_currency(@candle.price) %></strong> each</p>
   <div class="d-flex align-items-center">
-    <p class="m-0"><strong><%= number_to_currency(@candle.price) %></strong></p>
-    <%= link_to 'Add to cart!', cart_add_path(candle_id:@candle.id, quantity:1), method: :post, class:'m-2 btn btn-primary' %>
+    <%= form_with(url: cart_add_path, method: :post) do |form| %>
+      <%= form.hidden_field :candle_id, value: @candle.id %>
+      <%= form.label :quantity, "How many?" %>
+      <%= form.number_field :quantity, in: 1..5, value: 1 %>
+      <%= form.submit "Add to cart!", class:'m-2 btn btn-primary' %>
+    <% end %>
   </div>
 </div>
 
