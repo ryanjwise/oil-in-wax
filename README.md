@@ -222,6 +222,28 @@ Oil-In-Wax serves 2 audiences. People who like to buy candles, and small indepen
 
 ## R15 Explain the different high-level components (abstractions) in your app
 
+## R15 Explain the different high-level components (abstractions) in your app
+
+Built with ruby on rails, Oil-in-Wax follows the MVC architecture to separate its concerns. With the Model(M) controlling the data IO, the View(V) controlling the User Interface, and the Controller(C) handling the logic and translation between the two. Typically each high-level component of the app will have its own Model, View set, and Controller. Although there are additional helper models to assist with data normalisation, controllers with shared scope to deal with intertwined functionality, and shared views to allow consistency throughout the site.
+
+The primary abstractions within the app are as follows:
+
+1. `User`
+2. `Store`
+3. `Candle`
+4. `Cart`
+5. `Order`
+
+The `User` is an entity with elevated access and data stored within the app. Whilst anybody can browse to the splash page and look through stock, engaging any further requires a signed-in user account. The MVC for a user is controlled primarily through the devise gem and requires a user to have a unique email address and password. Some alterations have been made to the devise default extending it to require a username to anonymously identify users, and shipping address details through the address model. Update and View methods for User information are handled by the `home` controller. Some data sanitisation for devise is stored in the Application(parent) controller for simplicity.
+
+A single `Store` can be opened by any user. It allows a user to create, update and view any `Candle` listing they may wish to make. All a store needs is a name by which to identify it.
+
+A `Store` can list many `Candles`. Each candle is a separate sale item belonging to a `User` through their `Store`. Each candle will have a price, order count, name, and description. This information is then formatted and used in the listing presented to other users.
+
+A `Cart` is a transient record. It stores a list of candles that a user has expressed an intention to purchase from a single store. Since multiple stores exist within the marketplace, having an item in a cart should restrict users from adding items from other stores. Users can continue to add and remove items from their cart until they are happy and choose to make a purchase, the cart will then render a purchase screen outlining their line items and redirecting them to the Stripe payment screen. At the time of redirection, the cart will enter a 'pending' state and increment the order count of each candle within it. Once confirmation of sale has been received from Stripe, the cart will enter a 'complete' state before generating an `Order` and destroying itself.
+
+An `Order` is a record of sale. It is generated once the `Cart` has confirmed the payment has been successful and links a buying `User` with a purchased `Candle`. The Order also stores information regarding quantities of purchase, the price at the time of sale of each item, total price, and the Stripe receipt. Records of orders are currently rendered by the `home` controller along with user information.
+
 ## R16 Detail any third party services that your app will use
 
 - Stripe
