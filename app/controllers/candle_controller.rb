@@ -4,7 +4,10 @@ class CandleController < ApplicationController
 
   def create
     # Create a new candle for the current users store
-    @candle = current_user.store.candles.new(candle_params)
+    parameters = candle_params
+    parameters[:ingredients] = parameters[:ingredients].split
+    parameters[:scents] = parameters[:scents].split
+    @candle = current_user.store.candles.new(parameters)
     if @candle.save
       redirect_to store_admin_path
     else
