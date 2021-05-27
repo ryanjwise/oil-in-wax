@@ -1,13 +1,13 @@
 class CartController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cart, only: [:edit, :update, :destroy, :remove_from_cart]
+  before_action :set_cart, only: [:edit, :destroy, :remove_from_cart]
 
   def create
     @cart = current_user.build_cart(status: 'shopping')
     if @cart.save
       update
     else
-      flash[:alert] = 'Something went wrong, unable to add to cart'
+      flash[:alert] = 'Something went wrong, unable to create cart'
       redirect_to root_path
     end
   end
@@ -21,10 +21,10 @@ class CartController < ApplicationController
   end
 
   def remove_from_cart
-    if current_user.cart.candle_carts.count == 1
+    if @cart.candle_carts.count == 1
       destroy
     else
-      item = CandleCart.find(params[:id])
+      item = CandleCart.find(cart_params[:id])
       item.destroy
       flash[:alert] = "Succesfully Removed"
       redirect_back fallback_location: root_path
@@ -32,18 +32,19 @@ class CartController < ApplicationController
   end
 
   def update
-    candle = Candle.find(params[:candle_id])
-    quantity = params[:quantity]
+    parameters = candle_params
+    candle = Candle.find(parameters[:candle_id])
     item = CandleCart.new(
       candle: candle,
+      # Cannot use set_cart method as update method is called from add_to_cart
       cart: current_user.cart,
-      quantity: quantity
+      quantity: parameters[:quantity]
     )
 
     if item.save
       redirect_to candle_show_path(candle.id)
     else
-      flash[:alert] = "Something went wrong"
+      flash[:alert] = "Something went wrong, unable to add to cart"
       redirect_to root_path
     end
   end
@@ -60,7 +61,13 @@ class CartController < ApplicationController
     @cart = current_user.cart
   end
 
+  # Sanitize Cart ID
   def cart_params
-    params.require(:cart).permit(:candle_carts)
+    params.permit(:id)
+  end
+  
+  # Sanitize Candle Parameters
+  def candle_params
+    params.permit(:candle_id, :quantity)
   end
 end

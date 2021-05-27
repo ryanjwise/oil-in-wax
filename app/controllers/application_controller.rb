@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Add Username and Address params to devise sanitizer
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, address_attributes: [:state, :city, :street, :street_num, :post_code]])
   end

@@ -48,6 +48,7 @@ class CandleController < ApplicationController
     @candle = Candle.find(params[:id])
   end
 
+  # Sanitize candle params
   def candle_params
     params.require(:candle).permit(:name, :description, :stock, :price, :scents, :ingredients, :picture)
   end

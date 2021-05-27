@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   before_action :authenticate_user!, only: [:new, :admin, :edit, :update, :destroy]
   before_action :set_store, only: [:admin, :edit, :update, :destroy]
 
-  # Create new store for user 
+  # Create new store for user
   def new
     @store = Store.new
   end
@@ -56,6 +56,7 @@ class StoreController < ApplicationController
     @store = current_user.store
   end
 
+  # Sanitize new store parameters
   def store_params
     params.require(:store).permit(:name)
   end
