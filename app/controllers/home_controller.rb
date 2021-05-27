@@ -7,7 +7,10 @@ class HomeController < ApplicationController
   end
 
   def profile
+    # Include related candles and stores in query to eager load necessary data 
+    # for rendering cards
     @orders = @user.orders.includes(:order_items).includes(:candles, :stores)
+    pp @orders
   end
 
   def edit_address

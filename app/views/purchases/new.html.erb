@@ -1,8 +1,8 @@
 <h1>Checkout</h1>
 
 <article>
-  <% @items.each do |item| %>
-    <p><%= "#{item.quantity}x #{item.candle.name} @ #{item.candle.price} for #{number_to_currency(item.candle.price*item.quantity)}" %></p>
+  <% @line_items.each do |item| %>
+    <p><%= "#{item[:quantity]}}x #{item[:name]} @ #{pretty_amount(item[:amount].to_f)} for #{pretty_amount(item[:amount]*item[:quantity].to_f)}" %></p>
   <% end %>
   <p><strong>Total: <%= pretty_amount(@amount) %></strong></p>
 </article>

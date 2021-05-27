@@ -3,6 +3,7 @@ class CandleController < ApplicationController
   before_action :set_candle, only: [:show, :edit, :update, :destroy]
 
   def create
+    # Create a new candle for the current users store
     @candle = current_user.store.candles.new(candle_params)
     if @candle.save
       redirect_to store_admin_path
@@ -22,6 +23,7 @@ class CandleController < ApplicationController
   end
 
   def show
+    # Load the correct store page for the chosen candle, and load 10 additional candles from the same store.
     @store = @candle.store
     @candles = @store.candles.sample(10)
   end
@@ -31,6 +33,7 @@ class CandleController < ApplicationController
 
   def update
     parameters = candle_params
+    # Break passed string into array of strings as expected by the model
     parameters[:ingredients] = parameters[:ingredients].split
     parameters[:scents] = parameters[:scents].split
     if @candle.update(parameters)

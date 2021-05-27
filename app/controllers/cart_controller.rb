@@ -3,7 +3,7 @@ class CartController < ApplicationController
   before_action :set_cart, only: [:edit, :destroy, :remove_from_cart]
 
   def create
-    @cart = current_user.build_cart(status: 'shopping')
+    @cart = current_user.build_cart()
     if @cart.save
       update
     else
@@ -12,6 +12,7 @@ class CartController < ApplicationController
     end
   end
 
+  # Determine if a new cart is required, or one exists that can be added to
   def add_to_cart
     if current_user.cart
       update
@@ -20,6 +21,7 @@ class CartController < ApplicationController
     end
   end
 
+  # Destroy the cart if no items are left remaining, else remove specified item
   def remove_from_cart
     if @cart.candle_carts.count == 1
       destroy
