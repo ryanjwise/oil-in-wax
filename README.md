@@ -59,6 +59,7 @@ Receipt Mailing through an automated service
 ### Target audience
 
 Oil-In-Wax serves 2 audiences. People who like to buy candles, and small independent candle makers in Australia.
+
 ### Tech stack (e.g. html, css, deployment platform, etc)
 
 #### **Front-end**
@@ -264,8 +265,99 @@ A simple 3rd party image placeholder service. Whenever an image is not provided 
 
 ## R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
 
+- A `User` `has_one` `Address`,
+  - Thus each `Address` `belongs_to` a `User`
+- A `User` `has_one` `Store`,
+  - Thus each `Store` `belongs_to` a `User`
+- A `User` `has_one` `Cart`,
+  - Thus each `Cart` `belongs_to` a `User`
+- A `User` `has_many` `Orders`,
+  - Thus each `Order` `belongs_to` a `User`
+
+- A `Store` `has_many` `Candles`,
+  - Thus each `Candle` `belongs_to` a `Store`
+
+- A `Candle` `has_one_attached` `Picture`,
+  - A `Picture` belongs to a polymorphic table, and is not represented by a model
+- A `Candle` `has_many` `Candle_Carts`,
+  - Thus each `Candle_Cart` `belongs_to` a `Candle`
+- A `Candle` `has_many` `Carts` `through` `Candle_Carts`,
+  - Thus each `Candle_Cart` joins a `Candle` to a `Cart`
+  - A `Cart` does not belong to a `Candle`
+- A `Candle` `has_many` `Order_Items`,
+  - Thus each `Order_Item` `belongs_to` a `Candle`
+- A `Candle` `has_many` `Orders` `through` `Order_Items`,
+  - Thus each `Order_Item` joins a `Candle` to an `Order`
+  - An `Order` does not belong to a `Candle`
+
+In addition to the relationships listed above: 
+- As above an `Order` `has_many` `Candles` `through` `Order_Items`
+  - An `Order` also `has_many` `Stores` `through` `Candles`
+  - This enables more efficient queries from an `Order` to a corredponding `Store`
+
+```rb
+class Address < ApplicationRecord
+  belongs_to :user
+end
+
+class CandleCart < ApplicationRecord
+  belongs_to :candle
+  belongs_to :cart
+end
+
+class Candle < ApplicationRecord
+  belongs_to :store
+
+  has_one_attached :picture
+  has_many :candle_carts
+  has_many :carts, through: :candle_carts
+  has_many :order_items
+  has_many :orders, through: :order_items
+end
+
+class Cart < ApplicationRecord
+  belongs_to :user
+
+  has_many :candle_carts, dependent: :destroy
+  has_many :candles, through: :candle_carts
+end
+
+class OrderItem < ApplicationRecord
+  belongs_to :candle
+  belongs_to :order
+end
+
+class Order < ApplicationRecord
+  belongs_to :user
+
+  has_many :order_items
+  has_many :candles, through: :order_items
+  has_many :stores, through: :candles
+end
+
+class Store < ApplicationRecord
+  belongs_to :user
+  has_many :candles, dependent: :destroy
+end
+
+class User < ApplicationRecord
+  has_one :address, dependent: :destroy
+  has_one :store, dependent: :destroy
+  has_one :cart, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  accepts_nested_attributes_for :address
+end
+```
+
 ## R18 Discuss the database relations to be implemented in your application
 
+Further database normalisation is possible
+
+Polymorphic join of blobs to all table elemetns
 ## R19 Provide your database schema design
+
+```rb
+
+```
 
 ## R20 Describe the way tasks are allocated and tracked in your project
