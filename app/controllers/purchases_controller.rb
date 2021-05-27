@@ -33,6 +33,9 @@ class PurchasesController < ApplicationController
         quantity: item.quantity,
         unit_price: item.candle.price
       )
+      # Update stock levels
+      stock = item.candle.stock + item.quantity
+      item.candle.update(stock: stock)
     end
 
     # Tally prices
