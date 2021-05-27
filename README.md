@@ -70,7 +70,7 @@ The purpose of Oil in Wax is to facilitate the sale candles made by small, indep
 
 **Cart page**
 
-![Cart Display](docs/Screenshot-Cart-Page.png)
+![Cart Display](docs/Screenshot-Cart.png)
 
 ### Target audience
 
