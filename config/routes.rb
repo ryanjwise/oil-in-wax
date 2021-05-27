@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get 'purchases/success',     to: 'purchases#success',     as: 'success'
   post 'purchases/webhook',    to: 'purchases#webhook'
 
-  get 'cart/create'
-  get 'cart/edit'
   post 'cart/add',             to: 'cart#add_to_cart',      as: 'cart_add'
   delete 'cart/remove',        to: 'cart#remove_from_cart', as: 'cart_remove'
   delete 'cart/destroy/:id',   to: 'cart#destroy',          as: 'cart_destroy'
