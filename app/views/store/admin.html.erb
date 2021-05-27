@@ -1,6 +1,6 @@
 <h1><%= @store.name %> Administration</h1>
 <%= link_to 'Rename Store', store_edit_path, class:'btn btn-primary' %>
-<%= link_to 'Delete Store', store_path, method: :delete, data:{ confirm: 'Are you sure?'}, class:'btn btn-danger' %>
+<%= link_to 'Close Store', store_path, method: :delete, data:{ confirm: 'Are you sure?'}, class:'btn btn-danger disabled' %>
 
 <h2>Active stock</h2>
 

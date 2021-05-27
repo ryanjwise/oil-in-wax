@@ -8,7 +8,9 @@
       <% end %>
       <%= link_to 'Edit', candle_edit_path(candle.id), class:'m-1 btn btn-primary' %>
       <%= link_to 'Deactivate Listing', root_path, class:'m-1 btn btn-primary disabled' %>
-      <%= link_to 'Delete Listing', candle_destroy_path(candle.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-danger' %>
+      <% if candle.stock <= 0 %>
+        <%= link_to 'Delete Listing', candle_destroy_path(candle.id), method: :delete, data:{ confirm: 'Are you sure?'}, class:'m-1 btn btn-danger' %>
+      <% end %>
     </div>
     <div class="col-md-8">
       <div class="card-body">
