@@ -10,7 +10,7 @@ class Order < ApplicationRecord
       total_price: self.total_price,
       store_name: self.order_items.first.candle.store.name,
       created_at: self.created_at,
-      reciept_url: self.receipt_url
+      receipt_url: self.receipt_url
     }
   end
 
